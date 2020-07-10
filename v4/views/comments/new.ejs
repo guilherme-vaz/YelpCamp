@@ -1,0 +1,28 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Add New Comment to <%= campground.name %></h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <!--Os dados do form são redirecionados, "postados" na rota campgrounds-->
+                <form action="/campgrounds/<%= campground._id%>/comments" method="POST">
+                    <div class="form-group">
+                        <!--É importante que os inputs tenham a propriedade "name" pra poderem ser referenciados no back-end, como é feito lá no app.js-->
+                        <!--Da forma que está, comment[text] e comment[author] os dois ficam dentro de comment, req.body.comment e já aparecem dentro, já funciona-->
+                        <input class="form-control" type="text" name="comment[text]" placeholder="Text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="comment[author]" placeholder="Author">
+                    </div>
+                    <div class="form-group">
+                        <button  class="btn btn-lg btn-primary btn-block" >Submit!</button>
+                    </div>
+                </form><br>
+                <a href="/">Go back</a> <br>
+            </div>
+    </div>
+</div>
+
+
+
+<%- include ("../partials/footer") %>

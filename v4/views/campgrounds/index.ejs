@@ -1,0 +1,37 @@
+<%- include ("../partials/header") %>
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to YelpCamp!</h1>
+            <p>View our hand-picked campgrounds from all over the world</p>
+            <p>
+                <a href="/campgrounds/new" class="btn-primary btn-lg">Add new Campground!</a>
+            </p>
+        </div>
+    </header>
+    
+    <a href="/">Home</a>
+
+    <div class="row" style="display:flex; flex-wrap: wrap">
+<!--Aqui tá "campgrounds" no plural por que o nome da collection no banco de dados é campgrounds, isso acontece porque quando é criado uma instância a coleção é criada, e o DB deixa no plural-->
+        <% campgrounds.forEach(function(campground){ %> <!--"campground" é só um nome pra variável usada pra se referir aos dados dentro da coleção "campgrounds", podia ser usada qualquer nome pra variável-->
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= campground.image %>" alt="Campground photo">
+                    <div class="caption">
+                        <h4><%= campground.name %></h4>
+                    </div>
+                    <p>
+                        <!--Esse é o botão que mostra informações sobre um campground, inclusive os comentários, quando clico no botão a rota acionada é a rota "Show" que tá em app.js-->
+                        <a href="/campgrounds/<%=campground._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>  
+            </div>
+        <% }); %>
+    </div>
+    
+    
+</div>
+<%- include ("../partials/footer") %>

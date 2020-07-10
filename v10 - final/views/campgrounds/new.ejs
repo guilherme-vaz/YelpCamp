@@ -1,0 +1,31 @@
+<%- include ("../partials/header") %>
+
+
+    <div class="row">
+        <h1 style="text-align: center">Create a New Campground</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <!--Os dados do form são redirecionados, "postados" na rota campgrounds-->
+                <form action="/campgrounds" method="POST">
+                    <div class="form-group">
+                        <!--É importante que os inputs tenham a propriedade "name" pra poderem ser referenciados no back-end, como é feito lá no app.js-->
+                        <input class="form-control" type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="price" placeholder="price" min="0.01" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="image" placeholder="img url">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="description" placeholder="description">
+                    </div>
+                    <div class="form-group">
+                        <button  class="btn btn-lg btn-primary btn-block" >Submit!</button>
+                    </div>
+                </form><br>
+                <a href="/">Go back</a> <br>
+            </div>
+    </div>
+
+
+<%- include ("../partials/footer") %>
